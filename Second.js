@@ -1,24 +1,22 @@
-// There are N guests (numbered from 0 to N-1) in a sanatorium waiting to be assigned a room. In each room, any number of guests can be accommodated. However, not all guests like to have a lot of roommates.
-
-// You are given an array A of N integers: the K-th guest wants to be in a room that contains at most A[K] guests, including themselves.
+// You are given a string S consisting of N digits. What is the largest sum of two two-digit fragments of S? The selected fragments cannot overlap.
 
 // Write a function:
 
-// int solution(int A[], int N);
+// int solution(char *S);
 
-// that, given the array A, returns the minimum number of rooms needed to accommodate all guests.
+// that, given a string S, returns the largest sum of two two-digit numbers that are non-overlapping fragments of S.
 
 // Examples:
 
-// 1. Given A = [1, 1, 1, 1, 1], your function should return 5. Each guest should be accommodated in their own separate room.
+// 1. Given S = "43798", the function should return 141. The chosen fragments are "43" and "98": "43 7 98"
 
-// 2. Given A = [2, 1, 4], your function should return 2. The second guest should be accommodated in one room and the other two guests in another room.
+// 2. Given S = "00101", the function should return 10. The chosen fragments are "00" and "10": "00 10 1". Note that fragments "01" and "10" cannot be chosen as they overlap.
 
-// 3. Given A = [2, 7, 2, 9, 8], your function should return 2. The first and the third guests should be accommodated in one room and the other three guests in another room.
+// 3. Given S = "0332331", the function should return 66. The chosen fragments are "33" and "33": "0 33 2 33 1".
 
-// 4. Given A = [7, 3, 1, 1, 4, 5, 4, 9], your function should return 4. The guests can be accommodated as follows: the first two guests in one room, the third and the fourth guests in two single rooms, and the other guests in another room.
+// 4. Given S = "00331", the function should return 34. The chosen fragments are "03" and "31": "0 03 31"
 
-// Write an efficient algorithm for the following assumptions:
+// Assume that:
 
-// N is an integer within the range [1..100,000];
-// each element of array A is an integer within the range [1..100,000].
+// N is an integer within the range [4..100];
+// string S is made only of digits (0−9).
