@@ -18,3 +18,41 @@
 
 // A, B, C and D are integers within the range [0..9].
 // In your solution, focus on correctness. The performance of your solution will not be the focus of the assessment.
+
+function solution(A, B, C, D) {
+    const digits = [A, B, C, D];
+    const permutations = new Set();
+
+// Generate all permutations of the digits
+function generatePermutations(arr, perm = []) {
+    if (arr.length === 0) {
+        permutations.add(perm.join(''));
+    } else {
+        for (let i = 0; i < arr.length; i++) {
+            const newPerm = perm.concat(arr[i]);
+            const newArr = arr.slice(0, i).concat(arr.slice(i + 1));
+            generatePermutations(newArr, newPerm);
+        }
+    }
+}
+
+generatePermutations(digits);
+
+let validTimes = 0;
+
+permutations.forEach(perm => {
+    const hours = parseInt(perm.slice(0, 2));
+    const minutes = parseInt(perm.slice(2, 4));
+
+    if (hours < 24 && minutes < 60) {
+        validTimes++;
+    }
+});
+
+return validTimes;
+}
+
+// Examples
+console.log(solution(1, 8, 3, 2)); // Should return 6
+console.log(solution(2, 3, 3, 2)); // Should return 3
+console.log(solution(6, 2, 4, 7)); // Should return 0
